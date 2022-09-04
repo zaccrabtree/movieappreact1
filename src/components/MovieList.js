@@ -1,4 +1,8 @@
 import React from 'react';
+import Stars from "./Stars.js";
+import ReviewList from "./ReviewList.js";
+import ReviewForm from "./ReviewForm";
+
 
 const MovieList = (props) => {
 	const FavouriteComponent = props.favouriteComponent;
@@ -6,17 +10,23 @@ const MovieList = (props) => {
 	return (
 		<>
 			{props.movies.map((movie, index) => (
-				<div className='image-container d-flex justify-content-start m-3'>
-					<img src={movie.Poster} alt='movie'></img>
-					<div
-						onClick={() => props.handleFavouritesClick(movie)}
-						className='overlay d-flex align-items-center justify-content-center'
-					>
-						<FavouriteComponent />
-					</div>
-				</div>
-			))}
-		</>
+        		<div className="container" key={index}>
+          			<div className="row">
+            			<div className="col-md-2 image-container m-4">
+              				<img src={movie.Poster} alt="movie" width="150px"></img>
+            			</div>
+            			<div className="col-md-10 justify-content-start m-4">
+							<h2>{movie.Title}</h2>
+              				<Stars rating={movie.Rating} />
+              				<ReviewForm />
+            			</div>
+						
+						
+						
+          			</div>
+        		</div>
+      		))}
+	  </>
 	);
 };
 
