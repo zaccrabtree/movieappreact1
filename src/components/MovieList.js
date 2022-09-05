@@ -1,5 +1,4 @@
 import React from 'react';
-import Stars from "./Stars.js";
 import ReviewForm from "./ReviewForm";
 
 
@@ -16,7 +15,6 @@ const MovieList = (props) => {
             			</div>
             			<div className="col-md-10 justify-content-start m-4">
 							<h2>{movie.Title}</h2>
-              				<Stars rating={movie.Rating} />
               				<ReviewForm />
             			</div>
 						

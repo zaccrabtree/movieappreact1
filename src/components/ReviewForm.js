@@ -25,6 +25,25 @@ import React from "react";
     render() {
       return (
         <div class="container mt-5 mb-5" id="review-box">
+          <div>
+            <div id="stars">
+              <h5>Rating: {this.rating}</h5>
+              <select name="star-rating" id="star-rating" onChange={this.updateInput}>
+                <option disabled selected hidden>Select</option>
+                <option value="★">&#9733;</option>
+                <option value="★★">&#9733; &#9733;</option>
+                <option value="★★★">&#9733; &#9733; &#9733;</option>
+                <option value="★★★★">&#9733; &#9733; &#9733; &#9733;</option>
+                <option value="★★★★★">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+              </select>
+              <input
+              class="btn btn-small btn-info m-2"
+              type="submit"
+              value="Submit"
+              onClick={this.addValue}
+              />
+            </div>
+          </div>
           <div class="row">
             <div class="col-sm">
               <h1 id="leave-review-head">Leave a Review:</h1>
