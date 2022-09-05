@@ -37,12 +37,10 @@ const App = () => {
 					movies={movies}
 				/>
 			</div>
-			<div className='row'>
-				<MovieListHeading heading='Reviews' />
-				<ReviewList reviews={[]}/>
-			</div>
 		</div>
 	);
 };
+
+
 
 export default App;

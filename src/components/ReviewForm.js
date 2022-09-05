@@ -1,42 +1,66 @@
 import React from "react";
 
-class ReviewForm extends React.Component {
+  class ReviewForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { value: "" };
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = { addReview: "", reviews: [{ name: "" }] };
+      this.addValue = this.addValue.bind(this);
+      this.updateInput = this.updateInput.bind(this);
     }
   
-    handleChange(event) {
-      this.setState({ value: event.target.value });
-    }
-  
-    handleSubmit(event) {
+    addValue(event) {
       event.preventDefault();
+  
+      let reviews = this.state.reviews;
+      let addReview = this.state.addReview;
+      reviews.push({ name: addReview });
+      this.setState({ reviews: reviews });
+      console.log(reviews);
+    }
+
+    updateInput(event) {
+      this.setState({ addReview: event.target.value });
     }
   
     render() {
       return (
-        <form id="review-form" onSubmit={this.handleSubmit}>
-          <h5>Add A Review</h5>
-          <textarea
-            value={this.state.value}
-            onChange={this.handleChange}
-            placeholder="Enter your review"
-            name="review-text"
-            rows="2"
-            cols="30"
-          ></textarea>
-          <br />
-          <br />
+        <div class="container mt-5 mb-5" id="review-box">
+          <div class="row">
+            <div class="col-sm">
+              <h1 id="leave-review-head">Leave a Review:</h1>
+              <textarea
+                id="tex-box"
+                type="text"
+                rows="4"
+                cols="50"
+                placeholder="Tell us whether it slapped or stunk."
+                onChange={this.updateInput}
+              />
+              <br />
+              <br />
+              <button
+                className="btn btn-small btn-info m-2"
+                value="Submit"
+                onClick={this.addValue}
+              >Submit
+              </button>
+            </div>
+            <div class="col-sm">
+              <h1 id="reviews-head">Reviews:</h1>
+              <h1>{this.state.value}</h1>
   
-          <input class="btn btn-small btn-info" type="submit" value="Submit" />
-        </form>
+              <p>
+                {
+                  this.state.reviews.map(function (val) {
+                    return <p key={val.name}>{val.name}</p>;
+                  })
+                }
+              </p>
+            </div>
+          </div>
+        </div>
       );
     }
   }
-
 
 export default ReviewForm;

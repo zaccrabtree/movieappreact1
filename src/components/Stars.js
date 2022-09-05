@@ -1,14 +1,33 @@
 import React from "react";
 
-const Stars = (props) => {
-    const rating = props.rating;
-  
+class Stars extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = { addStars: "", stars: [] };
+      this.addValue = this.addValue.bind(this);
+      this.updateInput = this.updateInput.bind(this);
+      this.rating = props.stars;
+    }
+
+    addValue(event) {
+      event.preventDefault();
+      let stars = this.state.stars;
+      let addStars = this.state.addStars;
+      Stars.addValue = ({ name: addStars });
+      this.setState({ stars: this.value });
+      console.log(stars);
+    }
+    updateInput(event) {
+      this.setState({ addStars: event.target.value });
+    };
+  render() {
+    
     return (
-      <>
+      <div>
         <div id="stars">
-          <h5>Rating: {rating}</h5>
+          <h5>Rating: {this.rating}</h5>
   
-          <select name="star-rating" id="star-rating">
+          <select name="star-rating" id="star-rating" onChange={this.updateInput}>
             <option disabled selected hidden>
               Select
             </option>
@@ -23,10 +42,11 @@ const Stars = (props) => {
             class="btn btn-small btn-info m-2"
             type="submit"
             value="Submit"
+            onClick={this.addValue}
           />
         </div>
-      </>
-    );
+      </div>
+    );}
   };
 
 

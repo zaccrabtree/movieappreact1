@@ -1,6 +1,5 @@
 import React from 'react';
 import Stars from "./Stars.js";
-import ReviewList from "./ReviewList.js";
 import ReviewForm from "./ReviewForm";
 
 
