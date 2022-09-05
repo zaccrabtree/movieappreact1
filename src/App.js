@@ -6,6 +6,8 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import ReviewList from './components/ReviewList.js'
 
+
+//My app does an API call for the movies.
 const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [reviews, setReviews] = useState([]);

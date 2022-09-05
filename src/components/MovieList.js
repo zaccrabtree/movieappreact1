@@ -1,9 +1,9 @@
 import React from 'react';
 import ReviewForm from "./ReviewForm";
 
-
+//This is my MoveList component.
 const MovieList = (props) => {
-	const FavouriteComponent = props.favouriteComponent;
+	
 
 	return (
 		<>

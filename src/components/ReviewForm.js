@@ -1,5 +1,7 @@
 import React from "react";
 
+
+//My ReviewForm Component has most of the App's functionality. 
   class ReviewForm extends React.Component {
     constructor(props) {
       super(props);

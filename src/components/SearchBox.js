@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//My Searchbox enables seaching for a given movie by name
 const SearchBox = (props) => {
 	return (
 		<div className='col col-sm-4'>
